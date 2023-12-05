@@ -1,0 +1,16 @@
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+dataset = read.csv('./MinimumWageData1.csv')
+
+# Step 1: Filter dataset
+data_1968 <- dataset %>%
+  filter(Year == 1968)
+
+# Step 2: Create scatter chart
+scatter_chart <- ggplot(data_1968, aes(x = State, y = State.Minimum.Wage.2020.Dollars)) +
+  geom_point() +
+  labs(title = "Minimum Wage in 2020 Dollars by State in 1968", x = "State", y = "Minimum Wage in 2020 Dollars") +
+  theme(axis.text.x = element_text(angle = 60, hjust =1))
+
+print(scatter_chart)
